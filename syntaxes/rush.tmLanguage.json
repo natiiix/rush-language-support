@@ -1,0 +1,111 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Rush",
+	"patterns": [{
+			"include": "#keyword"
+		},
+		{
+			"include": "#type"
+		},
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#constant-bool"
+		},
+		{
+			"include": "#constant-int"
+		},
+		{
+			"include": "#constant-float"
+		},
+		{
+			"include": "#string"
+		},
+		{
+			"include": "#raw-string"
+		},
+		{
+			"include": "#regex"
+		},
+		{
+			"include": "#include"
+		},
+		{
+			"include": "#function"
+		}
+	],
+	"repository": {
+		"keyword": {
+			"patterns": [{
+				"name": "keyword.control.rush",
+				"match": "\\b(if|else|while|for|return|const|class|struct|enum|using|namespace)\\b"
+			}]
+		},
+		"type": {
+			"patterns": [{
+				"name": "entity.name.type.rush",
+				"match": "\\b(void|int|bool|char)\\b"
+			}]
+		},
+		"comment": {
+			"patterns": [{
+				"name": "comment.line.rush",
+				"match": "//.*"
+			}]
+		},
+		"constant-bool": {
+			"patterns": [{
+				"name": "constant.language.rush",
+				"match": "\\b(true|false)\\b"
+			}]
+		},
+		"constant-int": {
+			"patterns": [{
+				"name": "constant.numeric.integer.rush",
+				"match": "\\d+"
+			}]
+		},
+		"constant-float": {
+			"patterns": [{
+				"name": "constant.numeric.float.rush",
+				"match": "\\d+.\\d+f?"
+			}]
+		},
+		"string": {
+			"name": "string.quoted.double.rush",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [{
+				"name": "constant.character.escape.rush",
+				"match": "\\\\."
+			}]
+		},
+		"raw-string": {
+			"name": "string.quoted.other.rush",
+			"begin": "`",
+			"end": "`",
+			"patterns": []
+		},
+		"regex": {
+			"name": "string.regexp.rush",
+			"begin": "/",
+			"end": "/",
+			"patterns": [{
+				"name": "constant.character.escape.rush",
+				"match": "\\\\."
+			}]
+		},
+		"include": {
+			"name": "meta.preprocessor.include.rush",
+			"match": "#include",
+			"patterns": []
+		},
+		"function": {
+			"name": "entity.name.function.rush",
+			"match": "\\w+(?=\\s*\\()",
+			"patterns": []
+		}
+	},
+	"scopeName": "source.rush"
+}

@@ -1,0 +1,26 @@
+{
+    "name": "rush-language-support",
+    "displayName": "Rush Language Support",
+    "description": "Adds support for the Rush programming language",
+    "version": "0.0.1",
+    "publisher": "natiiix",
+    "engines": {
+        "vscode": "^1.22.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "rush",
+            "aliases": ["Rush", "rush"],
+            "extensions": [".rush"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "rush",
+            "scopeName": "source.rush",
+            "path": "./syntaxes/rush.tmLanguage.json"
+        }]
+    }
+}
