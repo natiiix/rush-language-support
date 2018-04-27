@@ -4,6 +4,7 @@
     "description": "Adds support for the Rush programming language",
     "version": "0.0.1",
     "publisher": "natiiix",
+    "repository": "https://github.com/natiiix/rush-language-support",
     "engines": {
         "vscode": "^1.22.0"
     },
