@@ -2,13 +2,13 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "Rush",
 	"patterns": [{
+			"include": "#comment"
+		},
+		{
 			"include": "#keyword"
 		},
 		{
-			"include": "#type"
-		},
-		{
-			"include": "#comment"
+			"include": "#language-type"
 		},
 		{
 			"include": "#constant-bool"
@@ -17,7 +17,31 @@
 			"include": "#constant-int"
 		},
 		{
+			"include": "#constant-int"
+		},
+		{
 			"include": "#constant-float"
+		},
+		{
+			"include": "#access-modifier"
+		},
+		{
+			"include": "#access-modifier"
+		},
+		{
+			"include": "#type-definition"
+		},
+		{
+			"include": "#namespace"
+		},
+		{
+			"include": "#namespace-access"
+		},
+		{
+			"include": "#include"
+		},
+		{
+			"include": "#character"
 		},
 		{
 			"include": "#string"
@@ -29,47 +53,101 @@
 			"include": "#regex"
 		},
 		{
-			"include": "#include"
-		},
-		{
 			"include": "#function"
 		}
 	],
 	"repository": {
-		"keyword": {
-			"patterns": [{
-				"name": "keyword.control.rush",
-				"match": "\\b(if|else|while|for|return|const|class|struct|enum|using|namespace)\\b"
-			}]
-		},
-		"type": {
-			"patterns": [{
-				"name": "entity.name.type.rush",
-				"match": "\\b(void|int|bool|char)\\b"
-			}]
-		},
 		"comment": {
-			"patterns": [{
-				"name": "comment.line.rush",
-				"match": "//.*"
-			}]
+			"name": "comment.line.rush",
+			"match": "//.*",
+			"patterns": []
+		},
+		"keyword": {
+			"name": "keyword.control.rush",
+			"match": "\\b(if|else|while|for|return|const|using|switch|throw)\\b",
+			"patterns": []
+		},
+		"language-type": {
+			"name": "storage.type.language.rush",
+			"match": "\\b(void|int|bool|char)\\b",
+			"patterns": []
 		},
 		"constant-bool": {
-			"patterns": [{
-				"name": "constant.language.rush",
-				"match": "\\b(true|false)\\b"
-			}]
+			"name": "constant.language.rush",
+			"match": "\\b(true|false)\\b",
+			"patterns": []
 		},
 		"constant-int": {
-			"patterns": [{
-				"name": "constant.numeric.integer.rush",
-				"match": "\\d+"
-			}]
+			"name": "constant.numeric.integer.rush",
+			"match": "\\d+",
+			"patterns": []
 		},
 		"constant-float": {
+			"name": "constant.numeric.float.rush",
+			"match": "\\d+.\\d+f?",
+			"patterns": []
+		},
+		"access-modifier": {
+			"name": "storage.modifier.rush",
+			"match": "\\b(private|protected|public):",
+			"patterns": []
+		},
+		"type-definition": {
+			"name": "storage.type.definition.rush",
+			"match": "\\b(class|struct|enum)\\s+(\\w+)\\b",
+			"captures": {
+				"1": {
+					"name": "storage.type.rush"
+				},
+				"2": {
+					"name": "entity.name.type.rush"
+				}
+			},
+			"patterns": []
+		},
+		"namespace": {
+			"match": "\\b(namespace)\\s+(\\w+);",
+			"captures": {
+				"1": {
+					"name": "storage.type.rush"
+				},
+				"2": {
+					"name": "entity.name.type.rush"
+				}
+			},
+			"patterns": []
+		},
+		"namespace-access": {
+			"name": "entity.name.type.rush",
+			"match": "\\w+(?=::)",
+			"patterns": []
+		},
+		"include": {
+			"name": "meta.preprocessor.include.rush",
+			"match": "(#include)\\s+(\\<|\")?([^\\<\\>\"]+)(\\>|\")?",
+			"captures": {
+				"1": {
+					"name": "meta.preprocessor.rush"
+				},
+				"2": {
+					"name": "punctuation.definition.string.begin"
+				},
+				"3": {
+					"name": "string.quoted.other.rush"
+				},
+				"4": {
+					"name": "punctuation.definition.string.end"
+				}
+			},
+			"patterns": []
+		},
+		"character": {
+			"name": "string.quoted.single.rush",
+			"begin": "'",
+			"end": "'",
 			"patterns": [{
-				"name": "constant.numeric.float.rush",
-				"match": "\\d+.\\d+f?"
+				"name": "constant.character.escape.rush",
+				"match": "\\\\."
 			}]
 		},
 		"string": {
@@ -82,7 +160,7 @@
 			}]
 		},
 		"raw-string": {
-			"name": "string.quoted.other.rush",
+			"name": "string.quoted.other.raw.rush",
 			"begin": "`",
 			"end": "`",
 			"patterns": []
@@ -95,11 +173,6 @@
 				"name": "constant.character.escape.rush",
 				"match": "\\\\."
 			}]
-		},
-		"include": {
-			"name": "meta.preprocessor.include.rush",
-			"match": "#include",
-			"patterns": []
 		},
 		"function": {
 			"name": "entity.name.function.rush",
