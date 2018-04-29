@@ -8,9 +8,6 @@
 			"include": "#keyword"
 		},
 		{
-			"include": "#operator"
-		},
-		{
 			"include": "#language-type"
 		},
 		{
@@ -38,9 +35,6 @@
 			"include": "#namespace"
 		},
 		{
-			"include": "#namespace-access"
-		},
-		{
 			"include": "#include"
 		},
 		{
@@ -57,22 +51,27 @@
 		},
 		{
 			"include": "#function"
+		},
+		{
+			"include": "#template"
+		},
+		{
+			"include": "#type-name"
+		},
+		{
+			"include": "#operator"
 		}
 	],
 	"repository": {
 		"comment": {
 			"name": "comment.line.rush",
-			"match": "//.*",
+			"begin": "//",
+			"end": "$",
 			"patterns": []
 		},
 		"keyword": {
 			"name": "keyword.control.rush",
-			"match": "\\b(if|else|while|for|return|const|using|switch|throw|break|continue)\\b",
-			"patterns": []
-		},
-		"operator": {
-			"name": "keyword.operator.rush",
-			"match": "\\+|-|\\*|/|%|=|!|&|\\|",
+			"match": "\\b(if|else|while|for|break|continue|return|using|switch|case|default|throw)\\b",
 			"patterns": []
 		},
 		"language-type": {
@@ -97,11 +96,10 @@
 		},
 		"access-modifier": {
 			"name": "storage.modifier.rush",
-			"match": "\\b(private|protected|public):",
+			"match": "\\b(private|protected|public):|\\b(const|static|inline)\\b",
 			"patterns": []
 		},
 		"type-definition": {
-			"name": "storage.type.definition.rush",
 			"match": "\\b(class|struct|enum)\\s+(\\w+)\\b",
 			"captures": {
 				"1": {
@@ -114,7 +112,7 @@
 			"patterns": []
 		},
 		"namespace": {
-			"match": "\\b(namespace)\\s+(\\w+);",
+			"match": "\\b(namespace)\\s+(\\w+)",
 			"captures": {
 				"1": {
 					"name": "storage.type.rush"
@@ -125,26 +123,14 @@
 			},
 			"patterns": []
 		},
-		"namespace-access": {
-			"name": "entity.name.type.rush",
-			"match": "\\w+(?=::)",
-			"patterns": []
-		},
 		"include": {
-			"name": "meta.preprocessor.include.rush",
-			"match": "(#include)\\s+(\\<|\")?([^\\<\\>\"]+)(\\>|\")?",
+			"match": "(#include)\\s+((?:\\<|\")?[^\\<\\>\"]+(?:\\>|\")?)",
 			"captures": {
 				"1": {
-					"name": "meta.preprocessor.rush"
+					"name": "keyword.control.import.rush"
 				},
 				"2": {
-					"name": "punctuation.definition.string.begin"
-				},
-				"3": {
 					"name": "string.quoted.other.rush"
-				},
-				"4": {
-					"name": "punctuation.definition.string.end"
 				}
 			},
 			"patterns": []
@@ -184,7 +170,22 @@
 		},
 		"function": {
 			"name": "entity.name.function.rush",
-			"match": "\\w+(?=\\s*\\()",
+			"match": "(\\w+::)*\\w+(?=\\s*\\()",
+			"patterns": []
+		},
+		"template": {
+			"name": "storage.type.rush",
+			"match": "\\btemplate(?=\\s*\\<)",
+			"patterns": []
+		},
+		"type-name": {
+			"name": "entity.name.type.rush",
+			"match": "\\<((\\w+::)*\\w+\\s*,\\s*)*(\\w+::)*\\w+\\>|\\<?((\\w+::)+\\w+|::\\w+)\\>?|\\w+(?=\\s+\\w+)",
+			"patterns": []
+		},
+		"operator": {
+			"name": "keyword.operator.rush",
+			"match": "\\+|-|\\*|/|%|=|!|&|\\|",
 			"patterns": []
 		}
 	},
