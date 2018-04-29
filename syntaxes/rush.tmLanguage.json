@@ -8,6 +8,9 @@
 			"include": "#keyword"
 		},
 		{
+			"include": "#operator"
+		},
+		{
 			"include": "#language-type"
 		},
 		{
@@ -64,7 +67,12 @@
 		},
 		"keyword": {
 			"name": "keyword.control.rush",
-			"match": "\\b(if|else|while|for|return|const|using|switch|throw)\\b",
+			"match": "\\b(if|else|while|for|return|const|using|switch|throw|break|continue)\\b",
+			"patterns": []
+		},
+		"operator": {
+			"name": "keyword.operator.rush",
+			"match": "\\+|-|\\*|/|%|=|!|&|\\|",
 			"patterns": []
 		},
 		"language-type": {
