@@ -86,12 +86,12 @@
 		},
 		"constant-int": {
 			"name": "constant.numeric.integer.rush",
-			"match": "(?<=\\W)(\\d+([uU]?[lL]{0,2}|[lL]{0,2}[uU]?)|0b[01]+|0x\\x+)(?=\\W)",
+			"match": "(?<!\\w)(\\d+([uU]?[lL]{0,2}|[lL]{0,2}[uU]?)|0b[01]+|0x\\x+)(?!\\w)",
 			"patterns": []
 		},
 		"constant-float": {
 			"name": "constant.numeric.float.rush",
-			"match": "(?<=\\W)\\d+.\\d+f?(?=\\W)",
+			"match": "(?<!\\w)\\d+.\\d+f?(?!\\w)",
 			"patterns": []
 		},
 		"access-modifier": {
