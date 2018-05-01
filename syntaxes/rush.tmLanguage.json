@@ -86,12 +86,12 @@
 		},
 		"constant-int": {
 			"name": "constant.numeric.integer.rush",
-			"match": "\\d+",
+			"match": "(?<=\\W)(\\d+([uU]?[lL]{0,2}|[lL]{0,2}[uU]?)|0b[01]+|0x\\x+)(?=\\W)",
 			"patterns": []
 		},
 		"constant-float": {
 			"name": "constant.numeric.float.rush",
-			"match": "\\d+.\\d+f?",
+			"match": "(?<=\\W)\\d+.\\d+f?(?=\\W)",
 			"patterns": []
 		},
 		"access-modifier": {
