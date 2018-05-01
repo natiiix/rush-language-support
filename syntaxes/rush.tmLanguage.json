@@ -76,7 +76,7 @@
 		},
 		"language-type": {
 			"name": "storage.type.language.rush",
-			"match": "\\b(void|int|bool|char)\\b",
+			"match": "\\b(void|int|bool|char|float|double)\\b",
 			"patterns": []
 		},
 		"constant-bool": {
