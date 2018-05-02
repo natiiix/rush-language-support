@@ -59,6 +59,9 @@
 			"include": "#type-name"
 		},
 		{
+			"include": "#object-identifier"
+		},
+		{
 			"include": "#operator"
 		}
 	],
@@ -181,6 +184,11 @@
 		"type-name": {
 			"name": "entity.name.type.rush",
 			"match": "\\<((\\w+::)*\\w+\\s*,\\s*)*(\\w+::)*\\w+\\>|\\<?((\\w+::)+\\w+|::\\w+)\\>?|\\w+(?=\\s+\\w+)",
+			"patterns": []
+		},
+		"object-identifier": {
+			"name": "entity.other.attribute-name.rush",
+			"match": "\\w+",
 			"patterns": []
 		},
 		"operator": {
