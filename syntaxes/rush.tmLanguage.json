@@ -96,7 +96,7 @@
 		},
 		"access-modifier": {
 			"name": "storage.modifier.rush",
-			"match": "\\b(private|protected|public):|\\b(const|static|inline)\\b",
+			"match": "\\b(private|protected|public)(:|(?=\\s*\\w+))|\\b(const|static|inline)\\b",
 			"patterns": []
 		},
 		"type-definition": {
