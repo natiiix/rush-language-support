@@ -2,7 +2,7 @@
     "name": "rush-language-support",
     "displayName": "Rush Language Support",
     "description": "Adds support for the Rush programming language",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "publisher": "natiiix",
     "repository": "https://github.com/natiiix/rush-language-support",
     "engines": {
