@@ -173,7 +173,7 @@
 		},
 		"function": {
 			"name": "entity.name.function.rush",
-			"match": "(\\w+::)*\\w+(?=\\s*\\()",
+			"match": "(\\w+::)*\\w+(\\s*\\<([\\w\\s,]|::)+\\>)?(?=\\s*\\()",
 			"patterns": []
 		},
 		"template": {
