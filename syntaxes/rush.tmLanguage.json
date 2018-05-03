@@ -84,7 +84,7 @@
 		},
 		"constant-bool": {
 			"name": "constant.language.rush",
-			"match": "\\b(true|false|nullptr)\\b",
+			"match": "\\b(true|false|nullptr|this)\\b",
 			"patterns": []
 		},
 		"constant-int": {
