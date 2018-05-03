@@ -193,7 +193,7 @@
 		},
 		"operator": {
 			"name": "keyword.operator.rush",
-			"match": "\\+|-|\\*|/|%|=|!|&|\\|",
+			"match": "\\+|-|\\*|/|%|=|!|&|\\||\\<|\\>",
 			"patterns": []
 		}
 	},
